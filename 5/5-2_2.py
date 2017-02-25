@@ -11,9 +11,11 @@ csvFile = open("editors.csv", 'wt', newline='', encoding='utf-8')
 writer = csv.writer(csvFile)
 try:
     for row in rows:
+        print("row = ", row)
         csvRow = []
         for cell in row.findAll(['td', 'th']):
+            print("cell = ", cell)
             csvRow.append(cell.get_text())
-            writer.writerow(csvRow)
+        writer.writerow(csvRow)
 finally:
     csvFile.close()
